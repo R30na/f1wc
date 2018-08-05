@@ -1,0 +1,101 @@
+<div *ngIf='loading' class='container' style="align-items: center !important;">
+  <fa-icon [icon]="faSpinner" [spin]="true" size="7x" style="color: white;"></fa-icon>
+</div>
+
+<div *ngIf='!loading' class='container'>
+
+  <div id="accordion">
+
+    <div class="card" style='width:80vw;background-color: black'>
+      <table class="table table-hover table-dark .table-sm">
+        <thead>
+          <tr>
+            <th scope="col col-2">#</th>
+            <th scope="col col-5">Race Name</th>
+            <th scope="col col-5">season</th>
+            <th scope="col col-5">round</th>
+            <th scope="col col-5">country</th>
+            <th scope="col col-5">date</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div *ngFor='let item of raceList; let i = index'>
+
+        <div class="card-header" [id]="'headingOne'+i" data-toggle="collapse" [attr.data-target]="'#collapseOne'+i" aria-expanded="true"
+          [attr.aria-controls]="'collapseOne'+i" style='border-color: grey'>
+
+          <table class="table table-hover table-dark .table-sm">
+            <!-- <thead>
+              <tr>
+                <th scope="col col-2">#</th>
+                <th scope="col col-5">Race Name</th>
+                <th scope="col col-5">season</th>
+                <th scope="col col-5">round</th>
+                <th scope="col col-5">country</th>
+                <th scope="col col-5">date</th>
+              </tr>
+            </thead> -->
+            <tbody>
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{item.raceName}}</td>
+                <td>{{item.season}}</td>
+                <td>{{item.round}}</td>
+                <td>{{item.Circuit.Location.country}}</td>
+                <td>{{item.date}}</td>
+                <td>
+                  <a href={{item.url}} target="_blank" style='color: white'>
+                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div [id]="'collapseOne'+i" class="collapse show" [attr.aria-labelledby]="'headingOne'+i" data-parent="#accordion">
+
+          <table class="table table-hover table-dark .table-sm">
+            <thead>
+              <tr>
+                <th scope="col col-2">Pos</th>
+                <th scope="col col-5">No</th>
+                <th scope="col col-5">Driver</th>
+                <th scope="col col-5">Constructor</th>
+                <th scope="col col-5">Laps</th>
+                <th scope="col col-5">Grid</th>
+                <th scope="col col-5">Time</th>
+                <th scope="col col-5">Status</th>
+                <th scope="col col-5">Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let winner of item.winners" [ngClass]="{'worldChampion':(championList.indexOf(winner.Driver.driverId) > -1 && winner == item.winners[0])}">
+                <th scope="row">{{winner.position}}</th>
+                <td>{{winner.number}}</td>
+                <td>{{winner.Driver.givenName}} {{winner.Driver.familyName}}</td>
+                <td>{{winner.Constructor.name}}</td>
+                <td>{{winner.laps}}</td>
+                <td>{{winner.grid}}</td>
+                <td *ngIf='winner.Time'>{{winner.Time.time}}</td>
+                <td>{{winner.status}}</td>
+                <td>{{winner.points}}</td>
+                <td>
+
+                  <a href={{winner.Driver.url}} target="_blank" style='color: white'>
+                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>

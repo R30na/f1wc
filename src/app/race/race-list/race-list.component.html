@@ -1,0 +1,26 @@
+<div *ngIf='loading' class='container'>
+  <fa-icon [icon]="faSpinner" [spin]="true" size="7x" style="color: white;"></fa-icon>
+</div>
+
+<div *ngIf='!loading' class='container'>
+  <table class="table table-hover table-dark .table-sm">
+    <thead>
+      <tr>
+        <th scope="col col-2">#</th>
+        <th scope="col col-5">Season</th>
+        <th scope="col col-5">Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let item of seasonList; let i = index' routerLink='/races/results/{{item.season}}'>
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.season}}</td>
+        <td>
+          <a href={{item.url}} target="_blank" style='color: white'>
+            <fa-icon [icon]="faInfoCircle"></fa-icon>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items :flex-start;
+    height: 80vh;
+    margin: 1%;
+    opacity: 0.8;
+    overflow: scroll;
+    height:80vh;
+}
+.container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .worldChampion{
+      background-color: green
+  }
