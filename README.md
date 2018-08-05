@@ -13,6 +13,9 @@ and navigate to  `http://localhost:4200/`.
 
 The project is written in Angular 6 and Bootstrap 4 and I tried to show the common structure I always follow in my large scale programs. 
 
+## Project Structure
+
+The project is consists of some lazy loaded components for diferent part including the Header, Sidebar, SeasonList and Resuts. there is also a service layer to fetch the API json files. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
