@@ -11,7 +11,7 @@ after that you can run the project by:
 and navigate to  `http://localhost:4200/`. 
 
 
-The project is written in Angular 5 and Bootstrap 4 and I tried to show the common structure I always follow in my large scale programs. 
+The project is written in Angular 6 and Bootstrap 4 and I tried to show the common structure I always follow in my large scale programs. 
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
